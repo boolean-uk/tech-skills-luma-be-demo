@@ -6,15 +6,15 @@ Requirements: see [here](./docs/requirements.md)
 ### Quickstart
 
 ```sh
-git clone && cd
-npm ci
+$ git clone git@github.com:boolean-uk/tech-skills-luma-be-demo.git && cd tech-skills-luma-be-demo
+$ npm ci
 ```
 
 ### Running tests
 ```sh
-npm test # the whole test suite
-npx jest spec/integration
-npx jest spec/unit
+$ npm test # the whole test suite
+$ npx jest spec/integration
+$ npx jest spec/unit
 ```
 
 Tests produce coverage results in `./coverage`
@@ -32,11 +32,11 @@ Tests produce coverage results in `./coverage`
 
 1. create a new project directory
 2. within the project directory, create a directory called `data`
-3. in this directory add a file called patients.json - this should contain the list of patient data to use.
+3. in this directory add a file called patients.json - this should contain the list of patient data to use. Patient data should adhere to the schema defined [here](./src/cli/patientListSchema.js)
 4. At the project directory root, install the node module
 
 ```sh
-npm install tech-skills-luma-be-demo
+$ npm install tech-skills-luma-be-demo
 ```
 
 Your project directory would then look like this:
@@ -55,5 +55,5 @@ package.json
 ### Getting the patient list
 From your project directory:
 ```sh
-npx tech-skills-luma-be-demo lon=50 lat=50
+$ npx tech-skills-luma-be-demo lon=50 lat=50
 ```
