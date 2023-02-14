@@ -58,8 +58,8 @@ describe('Parse', () => {
     it('returns location and data', () => {
       const args = [ '', './bin/cli', 'lon=50', 'lat=50' ]
       const { location, data } = parse(args, 'spec/fixtures/patients.json')
-      expect(location.Longitude).toEqual(50)
-      expect(location.Latitude).toEqual(50)
+      expect(location.longitude).toEqual(50)
+      expect(location.latitude).toEqual(50)
       expect(data.length).toEqual(20)
     })
   })
