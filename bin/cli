@@ -3,6 +3,9 @@
 const parse = require('../src/cli/parse')
 const getPatientList = require('../')
 
-const { location, data } = parse(process.argv)
-
-console.log(getPatientList(location, data))
+try {
+  const { location, data } = parse(process.argv)
+  console.log(getPatientList(location, data))
+} catch(e) {
+  console.log(e.message)
+}

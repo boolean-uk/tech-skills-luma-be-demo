@@ -14,17 +14,17 @@ const parse = (args, patientsJson='data/patients.json') => {
     if (data === undefined) throw new Error(`${props[prop].name} is required`)
 
     const val = data.split('=')[1]
-    if (isNaN(Number(val))) throw new Error(`${props[prop].name} must be a number`)
+    if (val === '' || isNaN(Number(val))) throw new Error(`${props[prop].name} must be a number`)
 
     location[props[prop].name] = Number(val)
   })
 
   const executingFilepath = args[1]
   let filepath
-  if (executingFilepath.split('/').reverse()[1] === 'bin') {
-    filepath = path.join(executingFilepath, '../..', patientsJson);
+  if (executingFilepath.split(path.sep).reverse()[1] === 'bin') {
+    filepath = path.join(executingFilepath, '..', '..', patientsJson);
   } else {
-    filepath = path.join(executingFilepath, '../../..', patientsJson);
+    filepath = path.join(executingFilepath, '..', '..', '..', patientsJson);
   }
 
   if (!fs.lstatSync(filepath).isFile()) throw new Error("invalid filepath provided")
