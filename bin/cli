@@ -1,38 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path');
-const validatePatientListData = require('../src/cli/validatePatientListData')
-
-const executingFilepath = process.argv[1]
-
-const latData = process.argv.find(arg => arg.split('=')[0] === 'lat')
-if (latData === undefined) throw new Error("latitude is required")
-const lat = latData.split('=')[1]
-if (isNaN(Number(lat))) throw new Error("latitude must be a number")
-
-const lonData = process.argv.find(arg => arg.split('=')[0] === 'lon')
-if (lonData === undefined) throw new Error("longitude is required")
-const lon = lonData.split('=')[1]
-if (isNaN(Number(lon))) throw new Error("longitude must be a number")
-
-const location = {
-  longitude: lon,
-  latitude: lat
-}
-
-let filepath
-if (executingFilepath.split('/').reverse()[0] === 'cli') {
-  filepath = path.join(executingFilepath, '../..', 'data/patients.json');
-} else {
-  filepath = path.join(executingFilepath, '../../..', 'data/patients.json');
-}
-
-if (!fs.lstatSync(filepath).isFile()) throw new Error("invalid filepath provided")
-
-const data = require(filepath)
-const result = validatePatientListData(data)
-if (!result.valid) throw new Error("data not valid")
-
+const parse = require('../src/cli/parse')
 const getPatientList = require('../')
+
+const { location, data } = parse(process.argv)
+
 console.log(getPatientList(location, data))

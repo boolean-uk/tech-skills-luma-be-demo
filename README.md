@@ -13,7 +13,6 @@ npm ci
 ### Running tests
 ```sh
 npm test # the whole test suite
-npx jest spec/e2e
 npx jest spec/integration
 npx jest spec/unit
 ```
