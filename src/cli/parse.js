@@ -16,7 +16,7 @@ const parse = (args, patientsJson='data/patients.json') => {
     const val = data.split('=')[1]
     if (val === '' || isNaN(Number(val))) throw new Error(`${props[prop].name} must be a number`)
 
-    location[props[prop].name] = Number(val)
+    location[props[prop].name.toLowerCase()] = Number(val)
   })
 
   const executingFilepath = args[1]
