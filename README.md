@@ -29,7 +29,7 @@ Tests produce coverage results in `./coverage`
 - Canceled Offers => a somewhat arbitrary division where <100, <75, <50 get points
 - Average Reply Time => a somewhat arbitrary division where <2500, <2000 get points
 
-### Installing as a node module
+## Installing as a node module
 
 1. create a new project directory
 2. within the project directory, create a directory called `data`
@@ -40,7 +40,7 @@ Tests produce coverage results in `./coverage`
 npm install tech-skills-luma-be-demo
 ```
 
-## Getting the patient list
+### Getting the patient list
 ```sh
 npx tech-skills-luma-be-demo lon=50 lat=50
 ```
