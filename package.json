@@ -9,6 +9,9 @@
   },
   "author": "",
   "license": "ISC",
+  "files": [
+    "src"
+  ],
   "devDependencies": {
     "jest": "^29.4.2"
   },
